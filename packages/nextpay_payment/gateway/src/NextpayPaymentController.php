@@ -47,7 +47,7 @@ class NextpayPaymentController extends Controller
         $nextpay->setOrderId($order_id);
         $trans = $nextpay->getTransaction($trans_id, $order_id);
         $nextpay->setAmount($trans->price);
-        $nextpay->setApiKey(config('gateway.nextpay.api_key', 'None'));
+        $nextpay->setApiKey(config('gateway.nextpay.apikey', 'None'));
         $status = $nextpay->verify_request();
         switch ($status) {
             case 0:
